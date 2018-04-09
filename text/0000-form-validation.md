@@ -200,7 +200,9 @@ export function createFormValidator(validators: ValidatorsMap): FormValidator {
 * Field validators are expected to return a truthy value, such as a non-empty string. It's most generally useful for the string to describe the error. To integrate with our smartling translations I propose the returned string be a smartling key, but other solutions are possible.
 
 ## Alternatives
-`validate` callback functions can be hand-rolled on a per usage basis. Or a hybrid solution could draw on a common set of field validators and create a custom `validate` callback using those.
+* `validate` callback functions can be hand-rolled on a per usage basis.
+* A hybrid solution could draw on a common set of field validators and create a custom `validate` callback using those.
+* [yup](https://github.com/jquense/yup) provides robust json client-side schema validation, which can (and apparently has) be used for form validation. It's possible to add custom validation messages on a per field basis too. However [I couldn't get it to work to display all errors at once](https://repl.it/@wruth/Yup-Validation) (maybe I'm doing something wrong).
 
 ## Unresolved Questions
 * Reference implementation is in TypeScript, but for general usage would probably need to be stripped down to standard JS with a type definition file.
